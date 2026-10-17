@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>۷ روز عاشقی ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  font-family:Tahoma,sans-serif;
+  color:white;
+  background:linear-gradient(135deg,#19051e,#5b103b,#150b35);
+}
+.heart{
+  position:absolute;
+  bottom:-40px;
+  color:#ff5b9c;
+  animation:float 7s linear infinite;
+  pointer-events:none;
+}
+@keyframes float{
+  0%{transform:translateY(0) rotate(0);opacity:0}
+  20%{opacity:1}
+  100%{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+.card{
+  width:90%;
+  max-width:430px;
+  padding:30px 22px;
+  text-align:center;
+  border:1px solid #ff8abb66;
+  border-radius:28px;
+  background:#ffffff0d;
+  backdrop-filter:blur(15px);
+  box-shadow:0 0 50px #ff2d8040;
+  z-index:2;
+}
+h1{color:#ff85b8;font-size:30px}
+.subtitle{line-height:2;color:#ffe3ef}
+.big-heart{
+  font-size:85px;
+  animation:beat 1s infinite;
+  filter:drop-shadow(0 0 20px #ff347c);
+}
+@keyframes beat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.18)}
+}
+button{
+  border:0;
+  padding:14px 24px;
+  margin:8px;
+  border-radius:30px;
+  background:linear-gradient(45deg,#ff3985,#ff78ad);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 5px 20px #ff398555;
+}
+#surprise{display:none;line-height:2}
+#surprise h2{color:#ff8cba}
+.days{font-size:48px;color:#ff8cba;font-weight:bold}
+.small{font-size:12px;color:#ffc5df}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div id="start">
+    <div class="big-heart">❤️</div>
+    <h1>یک سورپرایز کوچک!</h1>
+    <p class="subtitle">
+      زهرا جان، یک سوال ازت دارم... 🥹💕
+      <br>
+      آماده‌ای یک بازی کوچولو کنیم؟
+    </p>
+    <button onclick="next()">آره، شروع کنیم 💗</button>
+  </div>
+
+  <div id="question" style="display:none">
+    <h1 id="qtitle">یک سوال عاشقانه ❤️</h1>
+    <p class="subtitle" id="qtext"></p>
+    <button onclick="answer()">جوابم معلومه 😍</button>
+  </div>
+
+  <div id="surprise">
+    <div class="days">۷ روز ❤️</div>
+    <div class="big-heart">💖</div>
+    <h2>هفت روزه شدیم، عشق من!</h2>
+
+    <p>
+      زهرا جانم! 🌹<br>
+      مبارک باشه ۷ روز شدنمون! ❤️<br>
+      شاید فقط هفت روز گذشته باشه،
+      اما تو در همین مدت جای قشنگی در قلبم پیدا کردی.
+      <br>
+      ممنون که وارد دنیای من شدی.
+      <br>
+      امیدوارم روزهای قشنگ زیادی در کنار هم بسازیم. 💞
+    </p>
+
+    <h2>دوستت دارم، زهرا جان! 💋</h2>
+    <p class="small">با عشق، یوسف ❤️</p>
+    <button onclick="kiss()">یک بوس برای یوسف 😘</button>
+    <p id="kissmsg"></p>
+  </div>
+</div>
+
+<script>
+function next(){
+ document.getElementById("start").style.display="none";
+ document.getElementById("question").style.display="block";
+ document.getElementById("qtext").innerText=
+ "زهرا جان، می‌دونی یک نفر هست که همین حالا به تو فکر می‌کنه؟ 🥰";
+}
+function answer(){
+ document.getElementById("question").style.display="none";
+ document.getElementById("surprise").style.display="block";
+ confetti();
+}
+function kiss(){
+ document.getElementById("kissmsg").innerText=
+ "موووچ 😘❤️ اینم یک بوس عاشقانه از طرف یوسف!";
+ confetti();
+}
+function confetti(){
+ for(let i=0;i<35;i++){
+  let h=document.createElement("div");
+  h.innerHTML=["❤️","💖","💕","💗","😘"][Math.floor(Math.random()*5)];
+  h.className="heart";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(3+Math.random()*5)+"s";
+  h.style.fontSize=(15+Math.random()*25)+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8000);
+ }
+}
+setInterval(()=>{
+ let h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML=["❤️","💕","💗","💖"][Math.floor(Math.random()*4)];
+ h.style.left=Math.random()*100+"vw";
+ h.style.animationDuration=(5+Math.random()*5)+"s";
+ h.style.fontSize=(18+Math.random()*20)+"px";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),10000);
+},500);
+</script>
+
+</body>
+</html>
